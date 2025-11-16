@@ -31,7 +31,9 @@ function handleKey(event) {
         size *= 0.9; // deflate
     }
     balloon.style.fontSize = size + "px";
+    event.preventDefault();
 }
+
 document.addEventListener("keydown", handleKey);
 
 // 2. The index.html page has a tabbed layout. Make the default state of the layout show
