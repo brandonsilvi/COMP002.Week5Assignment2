@@ -43,3 +43,24 @@ document.addEventListener("keydown", handleKey);
 // function as expected. There are many ways to accomplish this task, but you will need
 // to at minimum add listeners to each link and toggle the display of the tab contents.
 // Hint: display: none; hides an element, and display: block; will bring it
+
+const tabs = ["tab1", "tab2", "tab3"];
+const links = tabLinks = tabs.map(id => document.getElementById(id + "Link"));
+const tabContents = tabs.map(id => document.getElementById(id));
+//grabbing all the tabs and content.
+
+function showTab(tabIndex) {
+  tabContents.forEach((tab, i) => {
+    tab.style.display = i === tabIndex ? "block" : "none";
+  });
+}
+
+showTab(0); // 1st tab default
+
+//event listener for the tab links
+links.forEach((link, index) => {
+  link.addEventListener("click", function(event) {
+    event.preventDefault();
+    showTab(index);
+  });
+});
